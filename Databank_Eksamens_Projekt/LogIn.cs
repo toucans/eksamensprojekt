@@ -16,5 +16,24 @@ namespace Databank_Eksamens_Projekt
         {
             InitializeComponent();
         }
+
+        private void ButtonNewUser_Click(object sender, EventArgs e)
+        {
+            DialogResult drl = new DialogResult();
+            drl = MessageBox.Show("Sure you want to create a new user?",MessageBoxButtons.YesNo.ToString());
+
+            if (drl.ToString()=="Yes")
+            {
+                 
+            }
+            else
+            {
+                //do nothing
+            }
+
+
+
+            
+        }
     }
 }
