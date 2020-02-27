@@ -1,0 +1,10 @@
+D:\eksamensprojekt\Databank_Eksamens_Projekt\bin\Debug\Databank_Eksamens_Projekt.exe.config
+D:\eksamensprojekt\Databank_Eksamens_Projekt\bin\Debug\Databank_Eksamens_Projekt.exe
+D:\eksamensprojekt\Databank_Eksamens_Projekt\bin\Debug\Databank_Eksamens_Projekt.pdb
+D:\eksamensprojekt\Databank_Eksamens_Projekt\obj\Debug\Databank_Eksamens_Projekt.csprojAssemblyReference.cache
+D:\eksamensprojekt\Databank_Eksamens_Projekt\obj\Debug\Databank_Eksamens_Projekt.LogIn.resources
+D:\eksamensprojekt\Databank_Eksamens_Projekt\obj\Debug\Databank_Eksamens_Projekt.Properties.Resources.resources
+D:\eksamensprojekt\Databank_Eksamens_Projekt\obj\Debug\Databank_Eksamens_Projekt.csproj.GenerateResource.cache
+D:\eksamensprojekt\Databank_Eksamens_Projekt\obj\Debug\Databank_Eksamens_Projekt.csproj.CoreCompileInputs.cache
+D:\eksamensprojekt\Databank_Eksamens_Projekt\obj\Debug\Databank_Eksamens_Projekt.exe
+D:\eksamensprojekt\Databank_Eksamens_Projekt\obj\Debug\Databank_Eksamens_Projekt.pdb
