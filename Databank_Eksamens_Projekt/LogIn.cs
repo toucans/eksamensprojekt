@@ -31,7 +31,7 @@ namespace Databank_Eksamens_Projekt
                     string PasswordInput = Interaction.InputBox("Please Scelect Your Password:", "PasswordSeclection");
                     if (UserNameInput==""&&UserNameInput.Length>5&& PasswordInput == "" && PasswordInput.Length > 5)
                     {
-                        MessageBox.Show("No usernameUsername to short");
+                        MessageBox.Show("No Username or Username to short");
                     }
 
                     DialogResult ConResult = MessageBox.Show("Confirmation of information:\n Username: "+UserNameInput+"\n Password: "+PasswordInput+"","Confirmation",MessageBoxButtons.YesNo);
@@ -50,50 +50,23 @@ namespace Databank_Eksamens_Projekt
                         else
                         {
                             string[] UsersImport = File.ReadAllLines(path);
-                            List<string> UsersList = new List<string>(UsersImport);
+                            List<string> UsersList = new List<string>(/*UsersImport*/);
                             UsersList.Add(UserNameInput+","+PasswordInput);
                             StreamWriter FileWriter = new StreamWriter(path);
-                            //File.WriteAllText(path, String.Empty);
-                            FileWriter.Write(UsersList.ToArray());
+                            File.WriteAllText(path, string.Empty);
+                            FileWriter.Write(UsersList.ToString());
                             FileWriter.Flush();
                             FileWriter.Close();
                         }
-                       // string Users = SRUser.ReadToEnd();
-                       /*
-                        try
-                        {
-
-                            foreach (var item in Users)
-                            {
-
-                            }
-
-                        }
-                        catch (Exception)
-                        {
-
-                            throw;
-                        }
-                        */
-                        MessageBox.Show("Craationg user");
+                        MessageBox.Show("Creating user");
                     }
-                    else
-                    {
-                        //throw new System.Exception();
-                    }
-                }
-                else
-                {
-                    //do nothing
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
 
-                MessageBox.Show("Ups, Something went wrong","Error");
+                MessageBox.Show(ex.ToString(),"Error");
             }
-
-
         }
     }
 }
