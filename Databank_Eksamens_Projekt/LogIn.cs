@@ -33,7 +33,7 @@ namespace Databank_Eksamens_Projekt
                     if (ConResult==DialogResult.Yes)
                     {
                         //Create user
-                        MessageBox.Show("Creaationg user");
+                        MessageBox.Show("User Created");
                     }
                     else
                     {
