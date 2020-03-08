@@ -40,8 +40,8 @@ namespace Databank_Eksamens_Projekt
                     {
                         //Create user
 
-                        MessageBox.Show("User Created");
-                        string path = @"C:\Temp\UsersTest.txt";
+                        //MessageBox.Show("User Created");
+                        string path = @"C:\Temp\Users.txt";
                         if (!File.Exists(path))
                         {
                             FileStream NewFile = File.Create(path);
@@ -49,22 +49,23 @@ namespace Databank_Eksamens_Projekt
                         }
                         else
                         {
-                            string[] UsersImport = File.ReadAllLines(path);
-                            List<string> UsersList = new List<string>(/*UsersImport*/);
-                            UsersList.Add(UserNameInput+","+PasswordInput);
+                            //string[] UsersImport = File.ReadAllLines(path);
+
+                            List<string> UsersList = new List<string>(File.ReadAllLines(path));
+                            //UsersList.Add(UserNameInput+","+PasswordInput);
                             StreamWriter FileWriter = new StreamWriter(path);
-                            File.WriteAllText(path, string.Empty);
-                            FileWriter.Write(UsersList.ToString());
+                            FileWriter.Write("");
+                            //FileWriter.Write(UsersList.ToString());
+                            FileWriter.Write(UsersList+UserNameInput + "," + PasswordInput+";");
                             FileWriter.Flush();
                             FileWriter.Close();
                         }
-                        MessageBox.Show("Creating user");
+                        MessageBox.Show("User Created");
                     }
                 }
             }
             catch (Exception ex)
             {
-
                 MessageBox.Show(ex.ToString(),"Error");
             }
         }
