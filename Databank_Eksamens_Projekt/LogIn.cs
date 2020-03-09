@@ -47,11 +47,14 @@ namespace Databank_Eksamens_Projekt
                         }
                         else
                         {
-                            List<string> UsersList = new List<string>(File.ReadAllLines(path).ToList());
-                            StreamWriter FileWriter = new StreamWriter(path);
-                            FileWriter.Write("");
-                           /* string UserAdd = UsersList.Add;
-                            FileWriter.Write(UsersList.Add(UserAdd));*/
+                           // string usersRead = File.ReadAllLines(path).ToString();
+                            var UsersList = new List<string>(File.ReadAllLines(path));
+                            TextWriter FileWriter = new StreamWriter(path);
+                            foreach (String item in UsersList)
+                            {
+                                FileWriter.WriteLine(item);
+                            }
+                            FileWriter.WriteLine(UserNameInput +", "+ PasswordInput);
                             FileWriter.Flush();
                             FileWriter.Close();
                         }
