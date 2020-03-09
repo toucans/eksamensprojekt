@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO.Compression;
+using System.IO;
 
 namespace Databank_Eksamens_Projekt
 {
@@ -16,10 +18,13 @@ namespace Databank_Eksamens_Projekt
         {
             InitializeComponent();
         }
+        String serverAddress = "file://192.168.11.3";
+        String serverAddress2 = @"\\192.168.11.3\pi";
 
         private void Home_Load(object sender, EventArgs e)
         {
-            webBrowser1.Url = new Uri("file://192.168.11.3");
+
+            webBrowser1.Url = new Uri(serverAddress);
         }
 
         private void buttonBack_Click(object sender, EventArgs e)
@@ -36,6 +41,18 @@ namespace Databank_Eksamens_Projekt
             {
                 webBrowser1.GoForward();
             }
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog zip = new SaveFileDialog();
+            zip.Filter = "Zip Files (*.zip)|*.zip";
+            if (zip.ShowDialog() == DialogResult.OK)
+            {
+                ZipFile.CreateFromDirectory(serverAddress2, zip.FileName);
+            }
+
+
         }
     }
 }
