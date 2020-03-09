@@ -34,50 +34,49 @@
             this.label2 = new System.Windows.Forms.Label();
             this.buttonNewUser = new System.Windows.Forms.Button();
             this.buttonLogIn = new System.Windows.Forms.Button();
+            this.buttonExit = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // textBoxUsername
             // 
-            this.textBoxUsername.Location = new System.Drawing.Point(66, 10);
-            this.textBoxUsername.Margin = new System.Windows.Forms.Padding(2);
+            this.textBoxUsername.Location = new System.Drawing.Point(88, 12);
+            this.textBoxUsername.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxUsername.Name = "textBoxUsername";
-            this.textBoxUsername.Size = new System.Drawing.Size(188, 20);
+            this.textBoxUsername.Size = new System.Drawing.Size(249, 22);
             this.textBoxUsername.TabIndex = 0;
             // 
             // textBoxPassword
             // 
-            this.textBoxPassword.Location = new System.Drawing.Point(66, 32);
-            this.textBoxPassword.Margin = new System.Windows.Forms.Padding(2);
+            this.textBoxPassword.Location = new System.Drawing.Point(88, 39);
+            this.textBoxPassword.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxPassword.Name = "textBoxPassword";
-            this.textBoxPassword.Size = new System.Drawing.Size(188, 20);
+            this.textBoxPassword.Size = new System.Drawing.Size(249, 22);
             this.textBoxPassword.TabIndex = 1;
             // 
             // labelUserName
             // 
             this.labelUserName.AutoSize = true;
-            this.labelUserName.Location = new System.Drawing.Point(4, 13);
-            this.labelUserName.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelUserName.Location = new System.Drawing.Point(5, 16);
             this.labelUserName.Name = "labelUserName";
-            this.labelUserName.Size = new System.Drawing.Size(58, 13);
+            this.labelUserName.Size = new System.Drawing.Size(77, 17);
             this.labelUserName.TabIndex = 2;
             this.labelUserName.Text = "Username:";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(6, 35);
-            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label2.Location = new System.Drawing.Point(8, 43);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(56, 13);
+            this.label2.Size = new System.Drawing.Size(73, 17);
             this.label2.TabIndex = 3;
             this.label2.Text = "Password:";
             // 
             // buttonNewUser
             // 
-            this.buttonNewUser.Location = new System.Drawing.Point(167, 55);
-            this.buttonNewUser.Margin = new System.Windows.Forms.Padding(2);
+            this.buttonNewUser.Location = new System.Drawing.Point(161, 68);
+            this.buttonNewUser.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonNewUser.Name = "buttonNewUser";
-            this.buttonNewUser.Size = new System.Drawing.Size(87, 22);
+            this.buttonNewUser.Size = new System.Drawing.Size(85, 27);
             this.buttonNewUser.TabIndex = 4;
             this.buttonNewUser.Text = "New User";
             this.buttonNewUser.UseVisualStyleBackColor = true;
@@ -85,26 +84,39 @@
             // 
             // buttonLogIn
             // 
-            this.buttonLogIn.Location = new System.Drawing.Point(66, 56);
-            this.buttonLogIn.Margin = new System.Windows.Forms.Padding(2);
+            this.buttonLogIn.Location = new System.Drawing.Point(252, 68);
+            this.buttonLogIn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonLogIn.Name = "buttonLogIn";
-            this.buttonLogIn.Size = new System.Drawing.Size(87, 22);
+            this.buttonLogIn.Size = new System.Drawing.Size(85, 27);
             this.buttonLogIn.TabIndex = 5;
             this.buttonLogIn.Text = "Log In";
             this.buttonLogIn.UseVisualStyleBackColor = true;
+            this.buttonLogIn.Click += new System.EventHandler(this.ButtonLogIn_Click);
+            // 
+            // buttonExit
+            // 
+            this.buttonExit.Location = new System.Drawing.Point(8, 68);
+            this.buttonExit.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.buttonExit.Name = "buttonExit";
+            this.buttonExit.Size = new System.Drawing.Size(74, 27);
+            this.buttonExit.TabIndex = 6;
+            this.buttonExit.Text = "Exit";
+            this.buttonExit.UseVisualStyleBackColor = true;
+            this.buttonExit.Click += new System.EventHandler(this.ButtonExit_Click);
             // 
             // LogIn
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(265, 86);
+            this.ClientSize = new System.Drawing.Size(353, 106);
+            this.Controls.Add(this.buttonExit);
             this.Controls.Add(this.buttonLogIn);
             this.Controls.Add(this.buttonNewUser);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.labelUserName);
             this.Controls.Add(this.textBoxPassword);
             this.Controls.Add(this.textBoxUsername);
-            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "LogIn";
             this.Text = "Form1";
             this.ResumeLayout(false);
@@ -120,6 +132,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button buttonNewUser;
         private System.Windows.Forms.Button buttonLogIn;
+        private System.Windows.Forms.Button buttonExit;
     }
 }
 

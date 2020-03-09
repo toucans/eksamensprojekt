@@ -39,8 +39,6 @@ namespace Databank_Eksamens_Projekt
                     if (ConResult==DialogResult.Yes)
                     {
                         //Create user
-
-                        //MessageBox.Show("User Created");
                         string path = @"C:\Temp\Users.txt";
                         if (!File.Exists(path))
                         {
@@ -49,14 +47,11 @@ namespace Databank_Eksamens_Projekt
                         }
                         else
                         {
-                            //string[] UsersImport = File.ReadAllLines(path);
-
-                            List<string> UsersList = new List<string>(File.ReadAllLines(path));
-                            //UsersList.Add(UserNameInput+","+PasswordInput);
+                            List<string> UsersList = new List<string>(File.ReadAllLines(path).ToList());
                             StreamWriter FileWriter = new StreamWriter(path);
                             FileWriter.Write("");
-                            //FileWriter.Write(UsersList.ToString());
-                            FileWriter.Write(UsersList+UserNameInput + "," + PasswordInput+";");
+                           /* string UserAdd = UsersList.Add;
+                            FileWriter.Write(UsersList.Add(UserAdd));*/
                             FileWriter.Flush();
                             FileWriter.Close();
                         }
@@ -68,6 +63,16 @@ namespace Databank_Eksamens_Projekt
             {
                 MessageBox.Show(ex.ToString(),"Error");
             }
+        }
+
+        private void ButtonLogIn_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ButtonExit_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
