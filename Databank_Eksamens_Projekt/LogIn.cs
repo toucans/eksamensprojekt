@@ -67,6 +67,8 @@ namespace Databank_Eksamens_Projekt
 
         private void ButtonLogIn_Click(object sender, EventArgs e)
         {
+            Form login = new Home();
+            login.Show();
 
         }
 

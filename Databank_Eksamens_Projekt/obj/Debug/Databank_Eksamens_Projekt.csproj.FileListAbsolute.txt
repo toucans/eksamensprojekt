@@ -18,3 +18,13 @@ E:\GitHub\eksamensprojekt\Databank_Eksamens_Projekt\obj\Debug\Databank_Eksamens_
 E:\GitHub\eksamensprojekt\Databank_Eksamens_Projekt\obj\Debug\Databank_Eksamens_Projekt.csproj.CoreCompileInputs.cache
 E:\GitHub\eksamensprojekt\Databank_Eksamens_Projekt\obj\Debug\Databank_Eksamens_Projekt.exe
 E:\GitHub\eksamensprojekt\Databank_Eksamens_Projekt\obj\Debug\Databank_Eksamens_Projekt.pdb
+C:\Users\Johan\Documents\GitHub\eksamensprojekt\Databank_Eksamens_Projekt\bin\Debug\Databank_Eksamens_Projekt.exe.config
+C:\Users\Johan\Documents\GitHub\eksamensprojekt\Databank_Eksamens_Projekt\bin\Debug\Databank_Eksamens_Projekt.exe
+C:\Users\Johan\Documents\GitHub\eksamensprojekt\Databank_Eksamens_Projekt\bin\Debug\Databank_Eksamens_Projekt.pdb
+C:\Users\Johan\Documents\GitHub\eksamensprojekt\Databank_Eksamens_Projekt\obj\Debug\Databank_Eksamens_Projekt.csprojAssemblyReference.cache
+C:\Users\Johan\Documents\GitHub\eksamensprojekt\Databank_Eksamens_Projekt\obj\Debug\Databank_Eksamens_Projekt.Home.resources
+C:\Users\Johan\Documents\GitHub\eksamensprojekt\Databank_Eksamens_Projekt\obj\Debug\Databank_Eksamens_Projekt.LogIn.resources
+C:\Users\Johan\Documents\GitHub\eksamensprojekt\Databank_Eksamens_Projekt\obj\Debug\Databank_Eksamens_Projekt.Properties.Resources.resources
+C:\Users\Johan\Documents\GitHub\eksamensprojekt\Databank_Eksamens_Projekt\obj\Debug\Databank_Eksamens_Projekt.csproj.GenerateResource.cache
+C:\Users\Johan\Documents\GitHub\eksamensprojekt\Databank_Eksamens_Projekt\obj\Debug\Databank_Eksamens_Projekt.exe
+C:\Users\Johan\Documents\GitHub\eksamensprojekt\Databank_Eksamens_Projekt\obj\Debug\Databank_Eksamens_Projekt.pdb
