@@ -24,11 +24,11 @@ namespace Databank_Eksamens_Projekt
             try
             {
                 //DialogResult drl = new DialogResult();
-                DialogResult result = MessageBox.Show("Sure you wan't to create a new account?", "UserCreation", MessageBoxButtons.YesNo);
+                DialogResult result = MessageBox.Show("Do you want to create a new account?", "UserCreation", MessageBoxButtons.YesNo);
                 if (result == DialogResult.Yes)
                 {
-                    string UserNameInput = Interaction.InputBox("Please Scelect Your Username:","UsernameSeclection");
-                    string PasswordInput = Interaction.InputBox("Please Scelect Your Password:", "PasswordSeclection");
+                    string UserNameInput = Interaction.InputBox("Please Select Your Username:","Username Selection");
+                    string PasswordInput = Interaction.InputBox("Please Select Your Password:", "Password Selection");
                     if (UserNameInput==""&&UserNameInput.Length>5&& PasswordInput == "" && PasswordInput.Length > 5)
                     {
                         MessageBox.Show("No Username or Username to short");
