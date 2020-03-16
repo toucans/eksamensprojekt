@@ -31,7 +31,7 @@ namespace Databank_Eksamens_Projekt
                     string PasswordInput = Interaction.InputBox("Please Select Your Password:", "Password Selection");
                     if (UserNameInput==""&&UserNameInput.Length>5&& PasswordInput == "" && PasswordInput.Length > 5)
                     {
-                        MessageBox.Show("No Username or Username to short");
+                        MessageBox.Show("No Username or Username too short");
                     }
 
                     DialogResult ConResult = MessageBox.Show("Confirmation of information:\n Username: "+UserNameInput+"\n Password: "+PasswordInput+"","Confirmation",MessageBoxButtons.YesNo);
@@ -73,6 +73,15 @@ namespace Databank_Eksamens_Projekt
             Form login = new Home();
             login.Show();
 
+            //-----Mount encrypted file-----
+            System.Diagnostics.Process process = new System.Diagnostics.Process();
+            System.Diagnostics.ProcessStartInfo startInfo = new System.Diagnostics.ProcessStartInfo();
+            startInfo.WindowStyle = System.Diagnostics.ProcessWindowStyle.Hidden;
+            startInfo.FileName = "cmd.exe";
+            startInfo.Arguments = @"/C veracrypt /q /v ""C:\Users\Johan\Documents\yoo"" /p ""programmeringsfaget""";
+            process.StartInfo = startInfo;
+            process.Start();
+            //-----------------------------
         }
 
         private void ButtonExit_Click(object sender, EventArgs e)
