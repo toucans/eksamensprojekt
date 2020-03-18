@@ -85,18 +85,20 @@ namespace Databank_Eksamens_Projekt
 
                 MessageBox.Show("Wrong Username or password");
             }
+            int Usrcount=0;
             foreach (String item in UsersList)
             {
 
                 string password = item;
                 string[] seperator = { ", " };
                 Int32 count = 2;
-
+                Usrcount = Usrcount+1;
                 string[] strlist = password.Split(seperator, count, StringSplitOptions.RemoveEmptyEntries);
-                MessageBox.Show(strlist[1]);
-
+                //MessageBox.Show(strlist[1]);
+                
                 if (strlist[0]==textBoxUsername.Text)
                 {
+                    
                     var result = SecureHasher.Verify(textBoxPassword.Text, strlist[1]);
                     if (result.Equals(false))
                     {
@@ -111,11 +113,10 @@ namespace Databank_Eksamens_Projekt
                      
                     }
                 }
-                else if (UsersList.Count()==item.Length)
+                else if (UsersList.Count()==Usrcount)
                 {
                     MessageBox.Show("Wrong Username or password");
                 }
-              
             }
 
         }
