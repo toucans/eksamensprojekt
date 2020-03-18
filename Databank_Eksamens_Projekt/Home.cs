@@ -20,11 +20,12 @@ namespace Databank_Eksamens_Projekt
         }
         String serverAddress = "file://192.168.0.47";
         String serverAddress2 = @"\\192.168.0.47\pi";
+        String mountDrive = "Z:/";
 
         private void Home_Load(object sender, EventArgs e)
         {
 
-            webBrowser1.Url = new Uri(serverAddress);
+            webBrowser1.Url = new Uri(mountDrive);
         }
 
         private void buttonBack_Click(object sender, EventArgs e)
