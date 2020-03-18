@@ -16,7 +16,7 @@ namespace Databank_Eksamens_Projekt
 {
     public partial class LogIn : Form
     {
-        String serverAddress2 = @"\\192.168.0.47\pi";
+        String serverAddress = @"\\192.168.0.47\pi";
         public LogIn()
         {
             InitializeComponent();
@@ -132,7 +132,7 @@ namespace Databank_Eksamens_Projekt
             cmd.StartInfo.UseShellExecute = false;
             cmd.Start();
 
-            cmd.StandardInput.WriteLine(string.Format(@"""\Program Files\VeraCrypt\VeraCrypt.exe"" /q /v ""{0}\yoo"" /letter z /p ""programmeringsfaget""", serverAddress2));
+            cmd.StandardInput.WriteLine(string.Format(@"""\Program Files\VeraCrypt\VeraCrypt.exe"" /q /v ""{0}\yoo"" /letter z /p ""{1}""", serverAddress, textBoxPassword.Text));
             cmd.StandardInput.Flush();
             cmd.StandardInput.Close();
             cmd.WaitForExit();

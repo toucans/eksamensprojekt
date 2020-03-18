@@ -18,8 +18,7 @@ namespace Databank_Eksamens_Projekt
         {
             InitializeComponent();
         }
-        String serverAddress = "file://192.168.0.47";
-        String serverAddress2 = @"\\192.168.0.47\pi";
+        String serverAddress = @"\\192.168.0.47\pi";
         String mountDrive = "Z:/";
 
         private void Home_Load(object sender, EventArgs e)
@@ -50,7 +49,7 @@ namespace Databank_Eksamens_Projekt
             zip.Filter = "Zip Files (*.zip)|*.zip";
             if (zip.ShowDialog() == DialogResult.OK)
             {
-                ZipFile.CreateFromDirectory(serverAddress2, zip.FileName);
+                ZipFile.CreateFromDirectory(serverAddress, zip.FileName);
             }
 
 
