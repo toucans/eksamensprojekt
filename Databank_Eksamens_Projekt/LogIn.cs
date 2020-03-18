@@ -114,7 +114,6 @@ namespace Databank_Eksamens_Projekt
                 {
                     MessageBox.Show("Wrong Username or password");
                 }
-              
             }
             
             /*
