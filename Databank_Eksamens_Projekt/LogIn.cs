@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using Microsoft.VisualBasic;
 using System.Windows.Forms;
 using System.IO;
+using System.Diagnostics;
 
 namespace Databank_Eksamens_Projekt
 {
@@ -70,18 +71,26 @@ namespace Databank_Eksamens_Projekt
 
         private void ButtonLogIn_Click(object sender, EventArgs e)
         {
+            //-----Mount encrypted file-----
+            Process cmd = new Process();
+            cmd.StartInfo.FileName = "cmd.exe";
+            cmd.StartInfo.RedirectStandardInput = true;
+            cmd.StartInfo.RedirectStandardOutput = true;
+            cmd.StartInfo.CreateNoWindow = false;
+            cmd.StartInfo.UseShellExecute = false;
+            cmd.Start();
+
+            cmd.StandardInput.WriteLine(@"""\Program Files\VeraCrypt\VeraCrypt.exe"" /q /v ""C:\Users\Johan\Documents\yoo"" /p ""programmeringsfaget""");
+            cmd.StandardInput.Flush();
+            cmd.StandardInput.Close();
+            cmd.WaitForExit();
+            Console.WriteLine(cmd.StandardOutput.ReadToEnd());
+            //-----------------------------
+
             Form login = new Home();
             login.Show();
 
-            //-----Mount encrypted file-----
-            System.Diagnostics.Process process = new System.Diagnostics.Process();
-            System.Diagnostics.ProcessStartInfo startInfo = new System.Diagnostics.ProcessStartInfo();
-            startInfo.WindowStyle = System.Diagnostics.ProcessWindowStyle.Hidden;
-            startInfo.FileName = "cmd.exe";
-            startInfo.Arguments = @"/C veracrypt /q /v ""C:\Users\Johan\Documents\yoo"" /p ""programmeringsfaget""";
-            process.StartInfo = startInfo;
-            process.Start();
-            //-----------------------------
+
         }
 
         private void ButtonExit_Click(object sender, EventArgs e)
