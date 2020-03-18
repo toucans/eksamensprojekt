@@ -34,15 +34,33 @@ namespace Databank_Eksamens_Projekt
         {
             return Hash(password, 10000);
         }
-        /*
+        
         public static bool Verify(string password, string hashedPassword)
         {
             if (!IsHashSupported(hashedPassword));
             {
-
+                throw new NotSupportedException("Error: Hashtype not dupported");
             }
+
+            var splittedHashString = hashedPassword.Replace("$MYHASH$V1$", "").Split('$');
+            var iterations = int.TryParse(splittedHashString[0]);
+            var base64Hash = splittedHashString[1];
+
+            var salt = new byte[SaltSize];
+            Array.Copy(hashBytes, 0, salt, 0, SaltSize);
+
+            var pbkdf2 = new Rfc2898DeriveBytes(password, salt, iterations);
+
+            for (var i = 0; i < HashSize; i++)
+            {
+                if (hashBytes[i+SaltSize]!=Hash[i])
+                {
+                    return false;
+                }
+            }
+            return true;
         }
-        */
+        
     }
 
 }

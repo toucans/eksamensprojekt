@@ -28,3 +28,4 @@ C:\Users\Johan\Documents\GitHub\eksamensprojekt\Databank_Eksamens_Projekt\obj\De
 C:\Users\Johan\Documents\GitHub\eksamensprojekt\Databank_Eksamens_Projekt\obj\Debug\Databank_Eksamens_Projekt.csproj.GenerateResource.cache
 C:\Users\Johan\Documents\GitHub\eksamensprojekt\Databank_Eksamens_Projekt\obj\Debug\Databank_Eksamens_Projekt.exe
 C:\Users\Johan\Documents\GitHub\eksamensprojekt\Databank_Eksamens_Projekt\obj\Debug\Databank_Eksamens_Projekt.pdb
+D:\eksamensprojekt\Databank_Eksamens_Projekt\obj\Debug\Databank_Eksamens_Projekt.Home.resources
