@@ -10,6 +10,7 @@ using Microsoft.VisualBasic;
 using System.Windows.Forms;
 using System.IO;
 using System.Security.Cryptography;
+using System.Diagnostics;
 
 namespace Databank_Eksamens_Projekt
 {
@@ -32,7 +33,7 @@ namespace Databank_Eksamens_Projekt
                     string PasswordInput = Interaction.InputBox("Please Select Your Password:", "Password Selection");
                     if (UserNameInput==""&&UserNameInput.Length>5&& PasswordInput == "" && PasswordInput.Length > 5)
                     {
-                        MessageBox.Show("No Username or Username to short");
+                        MessageBox.Show("No Username or Username too short");
                     }
 
                     DialogResult ConResult = MessageBox.Show("Confirmation of information:\n Username: "+UserNameInput+"\n Password: "+PasswordInput+"","Confirmation",MessageBoxButtons.YesNo);
@@ -116,6 +117,27 @@ namespace Databank_Eksamens_Projekt
             Form login = new Home();
             login.Show();
             */
+            
+            //-----Mount encrypted file-----
+            Process cmd = new Process();
+            cmd.StartInfo.FileName = "cmd.exe";
+            cmd.StartInfo.RedirectStandardInput = true;
+            cmd.StartInfo.RedirectStandardOutput = true;
+            cmd.StartInfo.CreateNoWindow = false;
+            cmd.StartInfo.UseShellExecute = false;
+            cmd.Start();
+
+            cmd.StandardInput.WriteLine(@"""\Program Files\VeraCrypt\VeraCrypt.exe"" /q /v ""C:\Users\Johan\Documents\yoo"" /p ""programmeringsfaget""");
+            cmd.StandardInput.Flush();
+            cmd.StandardInput.Close();
+            cmd.WaitForExit();
+            Console.WriteLine(cmd.StandardOutput.ReadToEnd());
+            //-----------------------------
+
+            Form login = new Home();
+            login.Show();
+
+
         }
 
         private void ButtonExit_Click(object sender, EventArgs e)

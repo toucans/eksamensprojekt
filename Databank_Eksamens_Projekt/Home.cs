@@ -18,8 +18,8 @@ namespace Databank_Eksamens_Projekt
         {
             InitializeComponent();
         }
-        String serverAddress = "file://192.168.11.3";
-        String serverAddress2 = @"\\192.168.11.3\pi";
+        String serverAddress = "file://192.168.0.47";
+        String serverAddress2 = @"\\192.168.0.47\pi";
 
         private void Home_Load(object sender, EventArgs e)
         {
