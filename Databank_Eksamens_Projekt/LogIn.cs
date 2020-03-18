@@ -103,13 +103,15 @@ namespace Databank_Eksamens_Projekt
                     }
                     else
                     {
-                    MessageBox.Show("loged in");
+                     MessageBox.Show("loged in");
+                     Form login = new Home();
+                     login.Show();
                     }
                 }
-               // else if (UsersList.Count()==)
-               // {
-
-               // }
+                else if (UsersList.Count()==item.Length)
+                {
+                    MessageBox.Show("Wrong Username or password");
+                }
               
             }
             
@@ -118,6 +120,7 @@ namespace Databank_Eksamens_Projekt
             login.Show();
             */
             
+            /*
             //-----Mount encrypted file-----
             Process cmd = new Process();
             cmd.StartInfo.FileName = "cmd.exe";
@@ -133,11 +136,7 @@ namespace Databank_Eksamens_Projekt
             cmd.WaitForExit();
             Console.WriteLine(cmd.StandardOutput.ReadToEnd());
             //-----------------------------
-
-            Form login = new Home();
-            login.Show();
-
-
+            */
         }
 
         private void ButtonExit_Click(object sender, EventArgs e)
