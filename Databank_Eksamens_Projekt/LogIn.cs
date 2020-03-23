@@ -106,11 +106,10 @@ namespace Databank_Eksamens_Projekt
                     }
                     else
                     {
-                     MessageBox.Show("logged in");
+                     //MessageBox.Show("logged in");
                      Mount();
-                     Form login = new Home();
-                     login.Show();
-                     
+                     Form Face = new FaceDetection();
+                     Face.Show();
                     }
                 }
                 else if (UsersList.Count()==Usrcount)
