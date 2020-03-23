@@ -62,6 +62,22 @@ namespace Databank_Eksamens_Projekt
                             FileWriter.Flush();
                             FileWriter.Close();
                         }
+                        MessageBox.Show("User will be created. This may take a while.");
+                        //-----Create encrypted file-----
+                        Process cmd = new Process();
+                        cmd.StartInfo.FileName = "cmd.exe";
+                        cmd.StartInfo.RedirectStandardInput = true;
+                        cmd.StartInfo.RedirectStandardOutput = true;
+                        cmd.StartInfo.CreateNoWindow = false;
+                        cmd.StartInfo.UseShellExecute = false;
+                        cmd.Start();
+
+                        cmd.StandardInput.WriteLine(string.Format(@"""\Program Files\VeraCrypt\VeraCrypt Format.exe"" /silent /create ""{0}\{1}"" /hash sha512 /encryption aes /size 200M /filesystem fat /dynamic /password ""{2}""", serverAddress, UserNameInput, PasswordInput));
+                        cmd.StandardInput.Flush();
+                        cmd.StandardInput.Close();
+                        cmd.WaitForExit();
+                        Console.WriteLine(cmd.StandardOutput.ReadToEnd());
+                        //-----------------------------
                         MessageBox.Show("User Created");
                     }
                 }
@@ -141,7 +157,7 @@ namespace Databank_Eksamens_Projekt
             cmd.StartInfo.UseShellExecute = false;
             cmd.Start();
 
-            cmd.StandardInput.WriteLine(string.Format(@"""\Program Files\VeraCrypt\VeraCrypt.exe"" /q /v ""{0}\yoo"" /letter z /p ""{1}""", serverAddress, textBoxPassword.Text));
+            cmd.StandardInput.WriteLine(string.Format(@"""\Program Files\VeraCrypt\VeraCrypt.exe"" /q /v ""{0}\{1}"" /letter z /p ""{2}""", serverAddress, textBoxUsername.Text, textBoxPassword.Text));
             cmd.StandardInput.Flush();
             cmd.StandardInput.Close();
             cmd.WaitForExit();
