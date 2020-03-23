@@ -106,10 +106,21 @@ namespace Databank_Eksamens_Projekt
                     }
                     else
                     {
-                     //MessageBox.Show("logged in");
-                     Mount();
-                     Form Face = new FaceDetection();
-                     Face.Show();
+                        DialogResult MBResult = MessageBox.Show("Want to skip Facedetection?","TestMode",MessageBoxButtons.YesNo);
+                        if (MBResult.Equals(DialogResult.Yes))
+                        {
+                            Mount();
+                            Form Home = new Home();
+                            Home.Show();
+                        }
+                        else
+                        {
+                            //MessageBox.Show("logged in");
+                            //Mount();
+                            Form Face = new FaceDetection();
+                            Face.Show();    
+                        }
+                    
                     }
                 }
                 else if (UsersList.Count()==Usrcount)
@@ -117,7 +128,6 @@ namespace Databank_Eksamens_Projekt
                     MessageBox.Show("Wrong Username or password");
                 }
             }
-
         }
 
         public void Mount()
