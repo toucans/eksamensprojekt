@@ -100,18 +100,18 @@ namespace Databank_Eksamens_Projekt
             catch (Exception)
             {
 
-                MessageBox.Show("Wrong Username or password");
+                MessageBox.Show("Ups. Something went wrong");
             }
             int Usrcount=0;
             foreach (String item in UsersList)
             {
 
-                string password = item;
+                string passw
+                    ord = item;
                 string[] seperator = { ", " };
                 Int32 count = 2;
                 Usrcount = Usrcount+1;
                 string[] strlist = password.Split(seperator, count, StringSplitOptions.RemoveEmptyEntries);
-                //MessageBox.Show(strlist[1]);
                 
                 if (strlist[0]==textBoxUsername.Text)
                 {
