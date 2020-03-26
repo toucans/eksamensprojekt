@@ -33,6 +33,7 @@
             this.button3 = new System.Windows.Forms.Button();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.webBrowser1 = new System.Windows.Forms.WebBrowser();
+            this.buttonDownloadEncryptedFile = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // buttonBack
@@ -85,11 +86,23 @@
             this.webBrowser1.Size = new System.Drawing.Size(785, 371);
             this.webBrowser1.TabIndex = 4;
             // 
+            // buttonDownloadEncryptedFile
+            // 
+            this.buttonDownloadEncryptedFile.Font = new System.Drawing.Font("Yu Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonDownloadEncryptedFile.Location = new System.Drawing.Point(413, 27);
+            this.buttonDownloadEncryptedFile.Name = "buttonDownloadEncryptedFile";
+            this.buttonDownloadEncryptedFile.Size = new System.Drawing.Size(220, 42);
+            this.buttonDownloadEncryptedFile.TabIndex = 5;
+            this.buttonDownloadEncryptedFile.Text = "Download Encrypted File";
+            this.buttonDownloadEncryptedFile.UseVisualStyleBackColor = true;
+            this.buttonDownloadEncryptedFile.Click += new System.EventHandler(this.buttonDownloadEncryptedFile_Click);
+            // 
             // Home
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(797, 506);
+            this.Controls.Add(this.buttonDownloadEncryptedFile);
             this.Controls.Add(this.webBrowser1);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.buttonForward);
@@ -111,5 +124,6 @@
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.WebBrowser webBrowser1;
+        private System.Windows.Forms.Button buttonDownloadEncryptedFile;
     }
 }

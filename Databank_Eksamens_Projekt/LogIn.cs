@@ -17,6 +17,7 @@ namespace Databank_Eksamens_Projekt
     public partial class LogIn : Form
     {
         String serverAddress = @"\\192.168.0.47\pi";
+        String username;
         public LogIn()
         {
             InitializeComponent();
@@ -125,8 +126,9 @@ namespace Databank_Eksamens_Projekt
                         DialogResult MBResult = MessageBox.Show("Want to skip Facedetection?","TestMode",MessageBoxButtons.YesNo);
                         if (MBResult.Equals(DialogResult.Yes))
                         {
+                            username = textBoxUsername.Text;
                             Mount();
-                            Form Home = new Home();
+                            Form Home = new Home(username);
                             Home.Show();
                         }
                         else
