@@ -106,8 +106,7 @@ namespace Databank_Eksamens_Projekt
             foreach (String item in UsersList)
             {
 
-                string passw
-                    ord = item;
+                string password = item;
                 string[] seperator = { ", " };
                 Int32 count = 2;
                 Usrcount = Usrcount+1;
