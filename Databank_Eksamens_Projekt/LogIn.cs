@@ -132,8 +132,6 @@ namespace Databank_Eksamens_Projekt
                         }
                         else
                         {
-                            //MessageBox.Show("logged in");
-                            //Mount();
                             Form Face = new FaceDetection();
                             Face.Show();    
                         }
