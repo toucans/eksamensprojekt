@@ -47,7 +47,7 @@ namespace Databank_Eksamens_Projekt
             }
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void buttonDownloadZip_Click(object sender, EventArgs e)
         {
             SaveFileDialog zip = new SaveFileDialog();
             zip.Filter = "Zip Files (*.zip)|*.zip";
@@ -55,10 +55,7 @@ namespace Databank_Eksamens_Projekt
             {
                 ZipFile.CreateFromDirectory(mountDrive, zip.FileName);
             }
-
-
         }
-
         private void buttonDownloadEncryptedFile_Click(object sender, EventArgs e)
         {
             DialogResult dismountYesNo = MessageBox.Show("Downloading your encrypted file will require it to dismount. Do you want to continue?", "Dismount", MessageBoxButtons.YesNo);
@@ -66,21 +63,9 @@ namespace Databank_Eksamens_Projekt
             {
                 DialogResult zippedYesNo = MessageBox.Show("Do you want your file zipped?", "Zipped", MessageBoxButtons.YesNo);
                 //-----Dismount encrypted file-----
-                Process cmd = new Process();
-                cmd.StartInfo.FileName = "cmd.exe";
-                cmd.StartInfo.RedirectStandardInput = true;
-                cmd.StartInfo.RedirectStandardOutput = true;
-                cmd.StartInfo.CreateNoWindow = false;
-                cmd.StartInfo.UseShellExecute = false;
-                cmd.Start();
-
-                cmd.StandardInput.WriteLine(string.Format(@"""\Program Files\VeraCrypt\VeraCrypt.exe"" /q /dismount /force"));
-                cmd.StandardInput.Flush();
-                cmd.StandardInput.Close();
-                cmd.WaitForExit();
-                Console.WriteLine(cmd.StandardOutput.ReadToEnd());
+                CmdExecute(@"""\Program Files\VeraCrypt\VeraCrypt.exe"" /q /dismount /force");
                 //-----------------------------
-
+                
                 if (zippedYesNo.Equals(DialogResult.Yes))
                 {
                     SaveFileDialog zip = new SaveFileDialog();
@@ -103,10 +88,25 @@ namespace Databank_Eksamens_Projekt
                         File.Copy(serverAddress + "\\" + username1, file.FileName);
                     }
                 }
-                
-            }
-            
 
+            }
+
+
+        }
+        public void CmdExecute(String command)
+        {
+            Process cmd = new Process();
+            cmd.StartInfo.FileName = "cmd.exe";
+            cmd.StartInfo.RedirectStandardInput = true;
+            cmd.StartInfo.RedirectStandardOutput = true;
+            cmd.StartInfo.CreateNoWindow = false;
+            cmd.StartInfo.UseShellExecute = false;
+            cmd.Start();
+            cmd.StandardInput.WriteLine(command);
+            cmd.StandardInput.Flush();
+            cmd.StandardInput.Close();
+            cmd.WaitForExit();
+            Console.WriteLine(cmd.StandardOutput.ReadToEnd());
         }
     }
 }

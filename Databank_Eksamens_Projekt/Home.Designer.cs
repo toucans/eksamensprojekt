@@ -30,7 +30,7 @@
         {
             this.buttonBack = new System.Windows.Forms.Button();
             this.buttonForward = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.buttonDownloadZip = new System.Windows.Forms.Button();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.webBrowser1 = new System.Windows.Forms.WebBrowser();
             this.buttonDownloadEncryptedFile = new System.Windows.Forms.Button();
@@ -58,16 +58,17 @@
             this.buttonForward.UseVisualStyleBackColor = true;
             this.buttonForward.Click += new System.EventHandler(this.buttonForward_Click);
             // 
-            // button3
+            // buttonDownloadZip
             // 
-            this.button3.Font = new System.Drawing.Font("Yu Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(224, 27);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(183, 42);
-            this.button3.TabIndex = 2;
-            this.button3.Text = "Download Zip";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.buttonDownloadZip.Cursor = System.Windows.Forms.Cursors.Default;
+            this.buttonDownloadZip.Font = new System.Drawing.Font("Yu Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonDownloadZip.Location = new System.Drawing.Point(224, 27);
+            this.buttonDownloadZip.Name = "buttonDownloadZip";
+            this.buttonDownloadZip.Size = new System.Drawing.Size(183, 42);
+            this.buttonDownloadZip.TabIndex = 2;
+            this.buttonDownloadZip.Text = "Download Zip";
+            this.buttonDownloadZip.UseVisualStyleBackColor = true;
+            this.buttonDownloadZip.Click += new System.EventHandler(this.buttonDownloadZip_Click);
             // 
             // menuStrip1
             // 
@@ -104,7 +105,7 @@
             this.ClientSize = new System.Drawing.Size(797, 506);
             this.Controls.Add(this.buttonDownloadEncryptedFile);
             this.Controls.Add(this.webBrowser1);
-            this.Controls.Add(this.button3);
+            this.Controls.Add(this.buttonDownloadZip);
             this.Controls.Add(this.buttonForward);
             this.Controls.Add(this.buttonBack);
             this.Controls.Add(this.menuStrip1);
@@ -121,7 +122,7 @@
 
         private System.Windows.Forms.Button buttonBack;
         private System.Windows.Forms.Button buttonForward;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button buttonDownloadZip;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.WebBrowser webBrowser1;
         private System.Windows.Forms.Button buttonDownloadEncryptedFile;
