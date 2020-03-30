@@ -34,6 +34,8 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.webBrowser1 = new System.Windows.Forms.WebBrowser();
             this.buttonDownloadEncryptedFile = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // buttonBack
@@ -98,11 +100,31 @@
             this.buttonDownloadEncryptedFile.UseVisualStyleBackColor = true;
             this.buttonDownloadEncryptedFile.Click += new System.EventHandler(this.buttonDownloadEncryptedFile_Click);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(31, 470);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(46, 17);
+            this.label1.TabIndex = 6;
+            this.label1.Text = "label1";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(221, 470);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(46, 17);
+            this.label2.TabIndex = 7;
+            this.label2.Text = "label2";
+            // 
             // Home
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(797, 506);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.buttonDownloadEncryptedFile);
             this.Controls.Add(this.webBrowser1);
             this.Controls.Add(this.buttonDownloadZip);
@@ -126,5 +148,7 @@
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.WebBrowser webBrowser1;
         private System.Windows.Forms.Button buttonDownloadEncryptedFile;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
     }
 }

@@ -11,6 +11,7 @@ using System.IO.Compression;
 using System.IO;
 using System.Diagnostics;
 using System.Threading;
+using System.Net;
 
 namespace Databank_Eksamens_Projekt
 {
@@ -58,7 +59,7 @@ namespace Databank_Eksamens_Projekt
         }
         private void buttonDownloadEncryptedFile_Click(object sender, EventArgs e)
         {
-            DialogResult dismountYesNo = MessageBox.Show("Downloading your encrypted file will require it to dismount. Do you want to continue?", "Dismount", MessageBoxButtons.YesNo);
+            DialogResult dismountYesNo = MessageBox.Show("Downloading your encrypted file will require it to dismount first. Do you want to continue?", "Dismount", MessageBoxButtons.YesNo);
             if (dismountYesNo.Equals(DialogResult.Yes))
             {
                 DialogResult zippedYesNo = MessageBox.Show("Do you want your file zipped?", "Zipped", MessageBoxButtons.YesNo);
@@ -77,7 +78,7 @@ namespace Databank_Eksamens_Projekt
                         File.Copy(serverAddress + "\\" + username1, serverAddress + "\\temp\\" + username1);
                         ZipFile.CreateFromDirectory(serverAddress + "\\temp", zip.FileName);
                         Thread.Sleep(500);
-                        //File.Delete(serverAddress + "\\temp");
+                        // File.Delete(serverAddress + "\\temp");
                     }
                 }
                 else
@@ -93,6 +94,22 @@ namespace Databank_Eksamens_Projekt
 
 
         }
+
+        //-------Copy file with progress bar------
+        public delegate void IntDelegate(int Int);
+        public static event IntDelegate FileCopyProgress;
+        public static void CopyFileWithProgress(string source, string destination)
+        {
+            var webClient = new WebClient();
+            webClient.DownloadProgressChanged += DownloadProgress;
+            webClient.DownloadFileAsync(new Uri(source), destination);
+        }
+        private static void DownloadProgress(object sender, DownloadProgressChangedEventArgs e)
+        {
+            if (FileCopyProgress != null)
+                FileCopyProgress(e.ProgressPercentage);
+        }
+        //-----------------------------------------
         public void CmdExecute(String command)
         {
             Process cmd = new Process();
