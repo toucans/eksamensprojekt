@@ -117,11 +117,13 @@ namespace Databank_Eksamens_Projekt
                             Mount();
                             Form Home = new Home(username);
                             Home.Show();
+                            this.Close();
                         }
                         else
                         {
-                            Form Face = new FaceDetection();
-                            Face.Show();    
+                            Form Face = new FaceDetection(username);
+                            Face.Show();
+                            //this.Close();
                         }
                     
                     }
