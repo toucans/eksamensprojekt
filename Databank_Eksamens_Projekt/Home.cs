@@ -28,8 +28,28 @@ namespace Databank_Eksamens_Projekt
 
         private void Home_Load(object sender, EventArgs e)
         {
-
             webBrowser1.Url = new Uri(mountDrive);
+
+            copyWorker.WorkerSupportsCancellation = true;
+            copyWorker.WorkerReportsProgress = true;
+            copyWorker.ProgressChanged += Worker_ProgressChanged;
+            copyWorker.DoWork += Worker_DoWork;
+        }
+
+        private void Worker_DoWork(object sender, DoWorkEventArgs e)
+        {
+            CopyFile(copySource, copyDest);
+            if (zipBool == true)
+            {
+                MessageBox.Show("Zipping file. This may take a while.");
+                ZipFile.CreateFromDirectory(serverAddress + "\\temp", zipFileName);
+                MessageBox.Show("Zip download done.");
+            }
+        }
+
+        private void Worker_ProgressChanged(object sender, ProgressChangedEventArgs e)
+        {
+            progressBarCopy.Value = e.ProgressPercentage;
         }
 
         private void buttonBack_Click(object sender, EventArgs e)
@@ -73,11 +93,16 @@ namespace Databank_Eksamens_Projekt
                     zip.Filter = "Zip Files (*.zip)|*.zip";
                     if (zip.ShowDialog() == DialogResult.OK)
                     {
-
+                        zipBool = true;
                         Directory.CreateDirectory(serverAddress + "\\temp");
-                        File.Copy(serverAddress + "\\" + username1, serverAddress + "\\temp\\" + username1);
-                        ZipFile.CreateFromDirectory(serverAddress + "\\temp", zip.FileName);
-                        Thread.Sleep(500);
+                        copySource = serverAddress + "\\" + username1;
+                        copyDest = serverAddress + "\\temp\\" + username1;
+                        //File.Copy(serverAddress + "\\" + username1, serverAddress + "\\temp\\" + username1);
+                        zipFileName = zip.FileName;
+                        MessageBox.Show("Copying file before zipping. This may take a while.");
+                        copyWorker.RunWorkerAsync();
+
+                        
                         // File.Delete(serverAddress + "\\temp");
                     }
                 }
@@ -86,7 +111,11 @@ namespace Databank_Eksamens_Projekt
                     SaveFileDialog file = new SaveFileDialog();
                     if (file.ShowDialog() == DialogResult.OK)
                     {
-                        File.Copy(serverAddress + "\\" + username1, file.FileName);
+                        zipBool = false;
+                        copySource = serverAddress + "\\" + username1;
+                        copyDest = file.FileName;
+                        copyWorker.RunWorkerAsync();
+                        
                     }
                 }
 
@@ -94,21 +123,29 @@ namespace Databank_Eksamens_Projekt
 
 
         }
-
+        
         //-------Copy file with progress bar------
-        public delegate void IntDelegate(int Int);
-        public static event IntDelegate FileCopyProgress;
-        public static void CopyFileWithProgress(string source, string destination)
+
+        BackgroundWorker copyWorker = new BackgroundWorker();
+        String copySource;
+        String copyDest;
+        void CopyFile(string source, string des)
         {
-            var webClient = new WebClient();
-            webClient.DownloadProgressChanged += DownloadProgress;
-            webClient.DownloadFileAsync(new Uri(source), destination);
+            FileStream fsOut = new FileStream(des, FileMode.Create);
+            FileStream fsIn = new FileStream(source, FileMode.Open);
+            byte[] bt = new byte[1048756];
+            int readByte;
+
+            while((readByte = fsIn.Read(bt, 0, bt.Length)) > 0)
+            {
+                fsOut.Write(bt, 0, readByte);
+                copyWorker.ReportProgress((int)(fsIn.Position * 100 / fsIn.Length));
+            }
+            fsIn.Close();
+            fsOut.Close();
         }
-        private static void DownloadProgress(object sender, DownloadProgressChangedEventArgs e)
-        {
-            if (FileCopyProgress != null)
-                FileCopyProgress(e.ProgressPercentage);
-        }
+        bool zipBool = false;
+        String zipFileName;
         //-----------------------------------------
         public void CmdExecute(String command)
         {
@@ -124,6 +161,9 @@ namespace Databank_Eksamens_Projekt
             cmd.StandardInput.Close();
             cmd.WaitForExit();
             Console.WriteLine(cmd.StandardOutput.ReadToEnd());
+        }
+        private void progressBarCopy_Click(object sender, EventArgs e)
+        {
         }
     }
 }

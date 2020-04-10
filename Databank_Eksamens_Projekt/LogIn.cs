@@ -22,7 +22,7 @@ namespace Databank_Eksamens_Projekt
         {
             InitializeComponent();
         }
-
+        
         private void ButtonNewUser_Click(object sender, EventArgs e)
         {
             try
