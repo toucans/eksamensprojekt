@@ -36,6 +36,7 @@
             this.buttonDownloadEncryptedFile = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.progressBarCopy = new System.Windows.Forms.ProgressBar();
             this.SuspendLayout();
             // 
             // buttonBack
@@ -118,11 +119,20 @@
             this.label2.TabIndex = 7;
             this.label2.Text = "label2";
             // 
+            // progressBarCopy
+            // 
+            this.progressBarCopy.Location = new System.Drawing.Point(392, 464);
+            this.progressBarCopy.Name = "progressBarCopy";
+            this.progressBarCopy.Size = new System.Drawing.Size(393, 23);
+            this.progressBarCopy.TabIndex = 8;
+            this.progressBarCopy.Click += new System.EventHandler(this.progressBarCopy_Click);
+            // 
             // Home
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(797, 506);
+            this.Controls.Add(this.progressBarCopy);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.buttonDownloadEncryptedFile);
@@ -150,5 +160,6 @@
         private System.Windows.Forms.Button buttonDownloadEncryptedFile;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ProgressBar progressBarCopy;
     }
 }
