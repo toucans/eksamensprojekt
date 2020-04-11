@@ -65,7 +65,7 @@ namespace Databank_Eksamens_Projekt
                         }
                         MessageBox.Show("User will be created. This may take a while.");
                         //-----Create encrypted file-----
-                        CmdExecute(string.Format(@"""\Program Files\VeraCrypt\VeraCrypt Format.exe"" /silent /create ""{0}\{1}"" /hash sha512 /encryption aes /size 200M /filesystem fat /dynamic /password ""{2}""", serverAddress, UserNameInput, PasswordInput));
+                        CmdExecute(string.Format(@"""\Program Files\VeraCrypt\VeraCrypt Format.exe"" /silent /create ""{0}\{1}"" /hash sha512 /encryption aes /size 200M /filesystem fat /dynamic /password ""{2}""", serverAddress, UserNameInput, SecureHasher.Hash(PasswordInput)));
                         //-----------------------------
                         MessageBox.Show("User Created");
                     }
@@ -138,7 +138,7 @@ namespace Databank_Eksamens_Projekt
         public void Mount()
         {
             //-----Mount encrypted file-----
-            CmdExecute(string.Format(@"""\Program Files\VeraCrypt\VeraCrypt.exe"" /q /v ""{0}\{1}"" /letter z /p ""{2}""", serverAddress, textBoxUsername.Text, textBoxPassword.Text));
+            CmdExecute(string.Format(@"""\Program Files\VeraCrypt\VeraCrypt.exe"" /q /v ""{0}\{1}"" /letter z /p ""{2}""", serverAddress, textBoxUsername.Text, SecureHasher.Hash(textBoxPassword.Text)));
             //-----------------------------
         }
 

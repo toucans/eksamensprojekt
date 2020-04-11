@@ -37,9 +37,10 @@
             // 
             // buttonDetect
             // 
-            this.buttonDetect.Location = new System.Drawing.Point(598, 12);
+            this.buttonDetect.Location = new System.Drawing.Point(448, 10);
+            this.buttonDetect.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.buttonDetect.Name = "buttonDetect";
-            this.buttonDetect.Size = new System.Drawing.Size(133, 36);
+            this.buttonDetect.Size = new System.Drawing.Size(100, 29);
             this.buttonDetect.TabIndex = 0;
             this.buttonDetect.Text = "&Detect and LogIn";
             this.buttonDetect.UseVisualStyleBackColor = true;
@@ -47,12 +48,10 @@
             // 
             // pic
             // 
-            this.pic.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.pic.Location = new System.Drawing.Point(12, 68);
+            this.pic.Location = new System.Drawing.Point(9, 55);
+            this.pic.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pic.Name = "pic";
-            this.pic.Size = new System.Drawing.Size(1089, 646);
+            this.pic.Size = new System.Drawing.Size(817, 396);
             this.pic.TabIndex = 1;
             this.pic.TabStop = false;
             // 
@@ -60,29 +59,32 @@
             // 
             this.comboBoxDevice.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxDevice.FormattingEnabled = true;
-            this.comboBoxDevice.Location = new System.Drawing.Point(258, 17);
+            this.comboBoxDevice.Location = new System.Drawing.Point(194, 14);
+            this.comboBoxDevice.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.comboBoxDevice.Name = "comboBoxDevice";
-            this.comboBoxDevice.Size = new System.Drawing.Size(334, 24);
+            this.comboBoxDevice.Size = new System.Drawing.Size(252, 21);
             this.comboBoxDevice.TabIndex = 2;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(151, 20);
+            this.label1.Location = new System.Drawing.Point(113, 16);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(101, 17);
+            this.label1.Size = new System.Drawing.Size(78, 13);
             this.label1.TabIndex = 3;
             this.label1.Text = "Choose device";
             // 
             // FaceDetection
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1113, 726);
+            this.ClientSize = new System.Drawing.Size(835, 460);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.comboBoxDevice);
             this.Controls.Add(this.pic);
             this.Controls.Add(this.buttonDetect);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "FaceDetection";
             this.Text = "FaceDetection using webcam";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Close);
