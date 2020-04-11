@@ -16,8 +16,10 @@ namespace Databank_Eksamens_Projekt
 {
     public partial class FaceDetection : Form
     {
-        public FaceDetection()
+        public string usernameFromLogin;
+        public FaceDetection(string username)
         {
+            usernameFromLogin = username;
             InitializeComponent();
         }
         FilterInfoCollection filter;
@@ -33,7 +35,6 @@ namespace Databank_Eksamens_Projekt
             }
             comboBoxDevice.SelectedIndex = 0;
             device = new VideoCaptureDevice();
-
         }
 
         private void buttonDetect_Click(object sender, EventArgs e)
@@ -48,6 +49,7 @@ namespace Databank_Eksamens_Projekt
             Bitmap bitmap = (Bitmap)eventArgs.Frame.Clone();
             Image<Bgr, byte> grayImage = new Image<Bgr, byte>(bitmap);
             Rectangle[] rectangles = cascadeClassifier.DetectMultiScale(grayImage, 1.2, 1);
+
             foreach (Rectangle rectangle in rectangles)
             {
                 using (Graphics graphics = Graphics.FromImage(bitmap))
@@ -59,10 +61,17 @@ namespace Databank_Eksamens_Projekt
 
                 }
             }
+            /*
+            Form home = new Home(usernameFromLogin);
+            home.Show();
+            
+            Close();
+            this.Close();
+            */
             pic.Image = bitmap;
         }
 
-        private void FaceDetection_FormClosed(object sender, FormClosedEventArgs e)
+        private void Close(object sender, FormClosedEventArgs e)
         {
             if (device.IsRunning)
             {
