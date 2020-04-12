@@ -23,7 +23,7 @@ namespace Databank_Eksamens_Projekt
             InitializeComponent();
             username1 = username;
         }
-        String serverAddress = @"\\192.168.0.47\pi";
+        String serverAddress = @"\\212.237.140.40\pi";
         String mountDrive = "Z:/";
 
         private void Home_Load(object sender, EventArgs e)
