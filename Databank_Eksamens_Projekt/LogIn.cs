@@ -134,13 +134,13 @@ namespace Databank_Eksamens_Projekt
                             username = textBoxUsername.Text;
                             Mount();
                             Form Home = new Home(username);
-                            Home.Show();
+                            Home.Show(); this.Close();
                         }
                         else
                         {
                             //-----open FaceDetection-----
                             Form Face = new FaceDetection(username);
-                            Face.Show();
+                            Face.Show(); this.Close();
                         }
                     
                     }
