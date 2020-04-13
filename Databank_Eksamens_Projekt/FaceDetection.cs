@@ -61,13 +61,6 @@ namespace Databank_Eksamens_Projekt
 
                 }
             }
-            /*
-            Form home = new Home(usernameFromLogin);
-            home.Show();
-            
-            Close();
-            this.Close();
-            */
             pic.Image = bitmap;
         }
 
