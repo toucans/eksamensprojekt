@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LogIn));
             this.textBoxUsername = new System.Windows.Forms.TextBox();
             this.textBoxPassword = new System.Windows.Forms.TextBox();
             this.labelUserName = new System.Windows.Forms.Label();
@@ -50,6 +51,7 @@
             this.textBoxPassword.Location = new System.Drawing.Point(88, 39);
             this.textBoxPassword.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxPassword.Name = "textBoxPassword";
+            this.textBoxPassword.PasswordChar = '*';
             this.textBoxPassword.Size = new System.Drawing.Size(249, 22);
             this.textBoxPassword.TabIndex = 1;
             // 
@@ -98,7 +100,7 @@
             this.buttonExit.Location = new System.Drawing.Point(8, 68);
             this.buttonExit.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonExit.Name = "buttonExit";
-            this.buttonExit.Size = new System.Drawing.Size(74, 27);
+            this.buttonExit.Size = new System.Drawing.Size(75, 27);
             this.buttonExit.TabIndex = 6;
             this.buttonExit.Text = "Exit";
             this.buttonExit.UseVisualStyleBackColor = true;
@@ -116,9 +118,11 @@
             this.Controls.Add(this.labelUserName);
             this.Controls.Add(this.textBoxPassword);
             this.Controls.Add(this.textBoxUsername);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "LogIn";
             this.Text = "Login";
+            this.Load += new System.EventHandler(this.LogIn_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
