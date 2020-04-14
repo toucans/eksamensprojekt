@@ -60,6 +60,7 @@ namespace Databank_Eksamens_Projekt
                 }
             }
             pic.Image = bitmap;
+
         }
 
         private void FaceDetection_FormClosed(object sender, FormClosedEventArgs e)
