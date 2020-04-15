@@ -158,7 +158,7 @@ namespace Databank_Eksamens_Projekt
         public void Mount()
         {
             //-----Mount encrypted file-----
-            CmdExecute(string.Format(@"""\Program Files\VeraCrypt\VeraCrypt.exe"" /q /v ""{0}\{1}"" /letter z /p ""{2}""", serverAddress, textBoxUsername.Text, textBoxPassword.Text));
+            CmdExecute(string.Format(@"""\Program Files\VeraCrypt\VeraCrypt.exe"" /q /v ""{0}\{1}"" /letter x /p ""{2}""", serverAddress, textBoxUsername.Text, textBoxPassword.Text));
             //------------------------------
         }
 
