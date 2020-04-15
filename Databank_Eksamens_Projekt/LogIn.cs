@@ -137,16 +137,14 @@ namespace Databank_Eksamens_Projekt
                             //-----Open home (file explorer) and send username to home form-----
                             Form Home = new Home(username);
                             Home.Show();
-                            Form Login = new LogIn();
-                            Login.Close();
+                            this.Hide();
                         }
                         else
                         {
                             //-----open FaceDetection-----
                             Form Face = new FaceDetection(username);
                             Face.Show();
-                            Form Login = new LogIn();
-                            Login.Close();
+                            this.Hide();
                         }
                     
                     }
