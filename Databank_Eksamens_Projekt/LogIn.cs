@@ -31,7 +31,7 @@ namespace Databank_Eksamens_Projekt
             try
             {
                 //-----Ask user if they want to create new user-----
-                DialogResult result = MessageBox.Show("Do you want to create a new account?", "UserCreation", MessageBoxButtons.YesNo);
+                DialogResult result = MessageBox.Show("Do you want to create a new account?", "User Creation", MessageBoxButtons.YesNo);
                 if (result == DialogResult.Yes)
                 {
                     //-----Get new account password and username-----
@@ -128,7 +128,7 @@ namespace Databank_Eksamens_Projekt
                     else
                     {
                         //-----Ask if you want to skip Facedetection-----
-                        DialogResult MBResult = MessageBox.Show("Want to skip Facedetection?","TestMode",MessageBoxButtons.YesNo);
+                        DialogResult MBResult = MessageBox.Show("Want to skip Facedetection?","Skip",MessageBoxButtons.YesNo);
                         if (MBResult.Equals(DialogResult.Yes))
                         {
                             username = textBoxUsername.Text;
