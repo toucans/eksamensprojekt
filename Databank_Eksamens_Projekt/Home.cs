@@ -24,7 +24,7 @@ namespace Databank_Eksamens_Projekt
             username1 = username;
         }
         String serverAddress = @"\\212.237.140.40\pi";
-        String mountDrive = "Z:/";
+        String mountDrive = "X:/";
 
         private void Home_Load(object sender, EventArgs e)
         {
