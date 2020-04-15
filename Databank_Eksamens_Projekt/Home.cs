@@ -24,7 +24,8 @@ namespace Databank_Eksamens_Projekt
             username1 = username;
         }
         String serverAddress = @"\\212.237.140.40\pi";
-        String mountDrive = "X:/";
+        String veracryptFolder = @"\Program Files\VeraCrypt";
+        String mountDrive = "Y:/";
 
         private void Home_Load(object sender, EventArgs e)
         {
@@ -84,7 +85,7 @@ namespace Databank_Eksamens_Projekt
             {
                 DialogResult zippedYesNo = MessageBox.Show("Do you want your file zipped?", "Zipped", MessageBoxButtons.YesNo);
                 //-----Dismount encrypted file-----
-                CmdExecute(@"""\Program Files\VeraCrypt\VeraCrypt.exe"" /q /dismount /force");
+                CmdExecute(string.Format(@"""{0}\VeraCrypt.exe"" /q /dismount /force", veracryptFolder));
                 //-----------------------------
                 
                 if (zippedYesNo.Equals(DialogResult.Yes))

@@ -18,6 +18,7 @@ namespace Databank_Eksamens_Projekt
     {
         //-----Declare server info-----
         String serverAddress = @"\\212.237.140.40\pi";
+        String veracryptFolder = @"\Program Files\VeraCrypt";
         String username;
         public LogIn()
         {
@@ -72,7 +73,7 @@ namespace Databank_Eksamens_Projekt
                         }
                         MessageBox.Show("User will be created. This may take a while.");
                         //-----Create encrypted file on the server-----
-                        CmdExecute(string.Format(@"""\Program Files\VeraCrypt\VeraCrypt Format.exe"" /silent /create ""{0}\{1}"" /hash sha512 /encryption aes /size 200M /filesystem fat /dynamic /password ""{2}""", serverAddress, UserNameInput, PasswordInput));
+                        CmdExecute(string.Format(@"""{0}\VeraCrypt Format.exe"" /silent /create ""{1}\{2}"" /hash sha512 /encryption aes /size 200M /filesystem fat /dynamic /password ""{3}""", veracryptFolder, serverAddress, UserNameInput, PasswordInput));
                         //-----------------------------
                         MessageBox.Show("User Created");
                     }
@@ -162,7 +163,7 @@ namespace Databank_Eksamens_Projekt
         public void Mount()
         {
             //-----Mount encrypted file-----
-            CmdExecute(string.Format(@"""\Program Files\VeraCrypt\VeraCrypt.exe"" /q /v ""{0}\{1}"" /letter x /p ""{2}""", serverAddress, textBoxUsername.Text, textBoxPassword.Text));
+            CmdExecute(string.Format(@"""{0}\VeraCrypt.exe"" /q /v ""{1}\{2}"" /letter y /p ""{3}""", veracryptFolder, serverAddress, textBoxUsername.Text, textBoxPassword.Text));
             //------------------------------
         }
 
