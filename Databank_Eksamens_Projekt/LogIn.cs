@@ -58,7 +58,7 @@ namespace Databank_Eksamens_Projekt
                         }
                         else
                         {
-                            //-----If file exist hash pasword and save user to file-----
+                            //-----If file exists then hash pasword and save user to file-----
                             var UsersList = new List<string>(File.ReadAllLines(path));
                             TextWriter FileWriter = new StreamWriter(path);
                             foreach (String item in UsersList)
@@ -71,7 +71,7 @@ namespace Databank_Eksamens_Projekt
                             FileWriter.Close();
                         }
                         MessageBox.Show("User will be created. This may take a while.");
-                        //-----Create encrypted file and send to server-----
+                        //-----Create encrypted file on the server-----
                         CmdExecute(string.Format(@"""\Program Files\VeraCrypt\VeraCrypt Format.exe"" /silent /create ""{0}\{1}"" /hash sha512 /encryption aes /size 200M /filesystem fat /dynamic /password ""{2}""", serverAddress, UserNameInput, PasswordInput));
                         //-----------------------------
                         MessageBox.Show("User Created");
@@ -130,9 +130,10 @@ namespace Databank_Eksamens_Projekt
                         DialogResult MBResult = MessageBox.Show("Want to skip Facedetection?","TestMode",MessageBoxButtons.YesNo);
                         if (MBResult.Equals(DialogResult.Yes))
                         {
-                            //-----open home-----
                             username = textBoxUsername.Text;
+                            //-----Mount the encrypted file from server on computer-----
                             Mount();
+                            //-----Open home (file explorer) and send username to home form-----
                             Form Home = new Home(username);
                             Home.Show();
                             Form Login = new LogIn();
@@ -162,7 +163,7 @@ namespace Databank_Eksamens_Projekt
         {
             //-----Mount encrypted file-----
             CmdExecute(string.Format(@"""\Program Files\VeraCrypt\VeraCrypt.exe"" /q /v ""{0}\{1}"" /letter z /p ""{2}""", serverAddress, textBoxUsername.Text, textBoxPassword.Text));
-            //-----------------------------
+            //------------------------------
         }
 
         private void ButtonExit_Click(object sender, EventArgs e)
@@ -210,7 +211,7 @@ namespace Databank_Eksamens_Projekt
                 return hashString.Contains("HASH$V1$");
             }
 
-            //-----Veryfi incoming password with hashed password-----
+            //-----Verify incoming password with hashed password-----
             public static bool Verify(string password, string hashedPassword)
             {
                 //-----Check if string contains "HASH$V1$"-----
@@ -248,6 +249,8 @@ namespace Databank_Eksamens_Projekt
 
 
         }
+
+        //Declare function for execution of command line commands
         public void CmdExecute(String command)
         {
             Process cmd = new Process();
@@ -264,6 +267,7 @@ namespace Databank_Eksamens_Projekt
             Console.WriteLine(cmd.StandardOutput.ReadToEnd());
         }
 
+        //Event handler that at the start of the program logs in samba server with username "pi" and password "programmeringsfaget"
         private void LogIn_Load(object sender, EventArgs e)
         {
             CmdExecute(@"net use \\212.237.140.40\pi programmeringsfaget /user:pi");
