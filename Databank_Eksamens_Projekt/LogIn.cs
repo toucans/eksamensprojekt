@@ -1,11 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Microsoft.VisualBasic;
 using System.Windows.Forms;
 using System.IO;
@@ -52,7 +47,7 @@ namespace Databank_Eksamens_Projekt
                     {
                         //-----Declare path and file name and chek if it allready exists else create file-----
                         string path = @"C:\Temp\Users.txt";
-                        if (!File.Exists(path))
+                        if (!File.Existqs(path))
                         {
                             FileStream NewFile = File.Create(path);
                             NewFile.Close();
@@ -73,6 +68,7 @@ namespace Databank_Eksamens_Projekt
                         }
                         MessageBox.Show("User will be created. This may take a while.");
                         //-----Create encrypted file on the server-----
+                        MessageBox.Show(string.Format(@"""{0}\VeraCrypt Format.exe"" /silent /create ""{1}\{2}"" /hash sha512 /encryption aes /size 200M /filesystem fat /dynamic /password ""{3}""", veracryptFolder, serverAddress, UserNameInput, PasswordInput));
                         CmdExecute(string.Format(@"""{0}\VeraCrypt Format.exe"" /silent /create ""{1}\{2}"" /hash sha512 /encryption aes /size 200M /filesystem fat /dynamic /password ""{3}""", veracryptFolder, serverAddress, UserNameInput, PasswordInput));
                         //-----------------------------
                         MessageBox.Show("User Created");
@@ -127,6 +123,7 @@ namespace Databank_Eksamens_Projekt
                     }
                     else
                     {
+                        Form Login = new LogIn();
                         //-----Ask if you want to skip Facedetection-----
                         DialogResult MBResult = MessageBox.Show("Want to skip Facedetection?","Skip",MessageBoxButtons.YesNo);
                         if (MBResult.Equals(DialogResult.Yes))
@@ -134,17 +131,17 @@ namespace Databank_Eksamens_Projekt
                             username = textBoxUsername.Text;
                             //-----Mount the encrypted file from server on computer-----
                             Mount();
-                            //-----Open home (file explorer) and send username to home form-----
+                            //-----Open home (file explorer) and send username to home form and close login-----
                             Form Home = new Home(username);
                             Home.Show();
-                            this.Hide();
+                            Login.Close();
                         }
                         else
                         {
-                            //-----open FaceDetection-----
+                            //-----open FaceDetection and close login-----
                             Form Face = new FaceDetection(username);
                             Face.Show();
-                            this.Hide();
+                            Login.Close();
                         }
                     
                     }
@@ -270,6 +267,7 @@ namespace Databank_Eksamens_Projekt
         private void LogIn_Load(object sender, EventArgs e)
         {
             CmdExecute(@"net use \\212.237.140.40\pi programmeringsfaget /user:pi");
+            CmdExecute("calc");
         }
     }
 }
